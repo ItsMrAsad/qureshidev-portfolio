@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run build)"
+      "Bash(npm run build)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nstyle: Switch to darker, more subtle theme\n\n- Change background to pure black \\(#000000\\)\n- Reduce glow effects and brightness across all elements\n- Tone down 3D scene: dimmer particles, orbs, and lights\n- Softer color palette: muted blue \\(#60a5fa\\), soft teal \\(#5eead4\\)\n- Slower, more subtle animations throughout\n- Reduced grid pattern and spotlight intensity\n- More professional, less flashy appearance\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }

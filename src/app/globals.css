@@ -5,7 +5,7 @@
 
 /* ============================================================================
    QURESHIDEV PORTFOLIO - GLOBAL STYLES
-   Theme: Deep Charcoal with Electric Blue & Slate accents
+   Theme: Pure Black with Subtle Accents - Minimal, Professional
    ============================================================================ */
 
 @theme inline {
@@ -52,65 +52,65 @@
 }
 
 /* ============================================================================
-   PROFESSIONAL TECH THEME - Clean, Modern, Client-Attractive
-   Primary: Electric Cyan (#0ea5e9) | Accent: Emerald (#10b981) | Highlight: Amber (#f59e0b)
+   DARK MINIMAL THEME - Pure Black, Subtle Accents
+   Primary: Muted Blue (#60a5fa) | Accent: Soft Teal (#5eead4)
    ============================================================================ */
 :root {
-  --radius: 0.75rem;
+  --radius: 0.625rem;
 
-  /* Deep Slate Background */
-  --background: #020617;
-  --foreground: #f1f5f9;
+  /* Pure Black Background */
+  --background: #000000;
+  --foreground: #e4e4e7;
 
-  /* Card & Surface Colors */
-  --card: #0f172a;
-  --card-foreground: #f1f5f9;
-  --popover: #0f172a;
-  --popover-foreground: #f1f5f9;
+  /* Card & Surface Colors - Very Dark */
+  --card: #09090b;
+  --card-foreground: #e4e4e7;
+  --popover: #09090b;
+  --popover-foreground: #e4e4e7;
 
-  /* Electric Cyan Primary */
-  --primary: #0ea5e9;
-  --primary-foreground: #ffffff;
+  /* Muted Blue Primary - Less Vibrant */
+  --primary: #60a5fa;
+  --primary-foreground: #000000;
 
-  /* Deep Slate Secondary */
-  --secondary: #1e293b;
-  --secondary-foreground: #f1f5f9;
+  /* Dark Gray Secondary */
+  --secondary: #18181b;
+  --secondary-foreground: #a1a1aa;
 
   /* Muted Colors */
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
+  --muted: #18181b;
+  --muted-foreground: #71717a;
 
-  /* Emerald Green Accent */
-  --accent: #10b981;
-  --accent-foreground: #ffffff;
+  /* Soft Teal Accent - Subtle */
+  --accent: #5eead4;
+  --accent-foreground: #000000;
 
-  /* Amber Highlight */
-  --highlight: #f59e0b;
+  /* Muted Highlight */
+  --highlight: #fbbf24;
 
   /* Destructive */
-  --destructive: #ef4444;
+  --destructive: #dc2626;
 
-  /* Borders & Inputs */
-  --border: #334155;
-  --input: #334155;
-  --ring: #0ea5e9;
+  /* Borders & Inputs - Very Subtle */
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #60a5fa;
 
-  /* Chart Colors - Tech palette */
-  --chart-1: #0ea5e9;
-  --chart-2: #10b981;
-  --chart-3: #06b6d4;
-  --chart-4: #22c55e;
-  --chart-5: #f59e0b;
+  /* Chart Colors - Muted palette */
+  --chart-1: #60a5fa;
+  --chart-2: #5eead4;
+  --chart-3: #818cf8;
+  --chart-4: #a78bfa;
+  --chart-5: #fbbf24;
 
   /* Sidebar */
-  --sidebar: #0f172a;
-  --sidebar-foreground: #f1f5f9;
-  --sidebar-primary: #0ea5e9;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1e293b;
-  --sidebar-accent-foreground: #f1f5f9;
-  --sidebar-border: #334155;
-  --sidebar-ring: #0ea5e9;
+  --sidebar: #09090b;
+  --sidebar-foreground: #e4e4e7;
+  --sidebar-primary: #60a5fa;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #18181b;
+  --sidebar-accent-foreground: #a1a1aa;
+  --sidebar-border: #27272a;
+  --sidebar-ring: #60a5fa;
 }
 
 /* ============================================================================
@@ -131,10 +131,10 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Custom scrollbar */
+  /* Custom scrollbar - Minimal */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -142,8 +142,8 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--muted);
-    border-radius: 4px;
+    background: var(--border);
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -163,19 +163,17 @@
 
 @layer utilities {
 
-  /* Gradient text with shimmer */
+  /* Gradient text - Subtle, slower animation */
   .text-gradient {
-    background: linear-gradient(90deg,
+    background: linear-gradient(135deg,
         var(--primary) 0%,
-        var(--accent) 25%,
-        var(--highlight) 50%,
-        var(--accent) 75%,
+        var(--accent) 50%,
         var(--primary) 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer 3s linear infinite;
+    animation: shimmer 6s linear infinite;
   }
 
   @keyframes shimmer {
@@ -184,46 +182,47 @@
     }
   }
 
-  /* Glassmorphism - slate tinted */
+  /* Glassmorphism - Darker, more subtle */
   .glass {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(9, 9, 11, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(14, 165, 233, 0.15);
+    border: 1px solid rgba(39, 39, 42, 0.6);
   }
 
   .glass-strong {
-    background: rgba(15, 23, 42, 0.92);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(14, 165, 233, 0.2);
+    background: rgba(9, 9, 11, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(39, 39, 42, 0.8);
   }
 
-  /* Glow effects - Cyan & Emerald */
+  /* Glow effects - Much more subtle */
   .glow-primary {
-    box-shadow: 0 0 25px rgba(14, 165, 233, 0.4),
-      0 0 50px rgba(14, 165, 233, 0.15),
-      inset 0 0 20px rgba(14, 165, 233, 0.05);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.15),
+      0 0 40px rgba(96, 165, 250, 0.05);
   }
 
   .glow-accent {
-    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4),
-      0 0 50px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 20px rgba(94, 234, 212, 0.15),
+      0 0 40px rgba(94, 234, 212, 0.05);
   }
 
   .glow-text {
-    text-shadow: 0 0 20px rgba(14, 165, 233, 0.6),
-      0 0 40px rgba(16, 185, 129, 0.4);
+    text-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
   }
 
-  /* Neon border effect */
+  /* Neon border effect - Subtle */
   .neon-border {
-    border: 1px solid transparent;
-    background: linear-gradient(var(--card), var(--card)) padding-box,
-      linear-gradient(135deg, var(--primary), var(--accent), var(--highlight)) border-box;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s ease;
   }
 
-  /* Spotlight hover effect - Cyan */
+  .neon-border:hover {
+    border-color: rgba(96, 165, 250, 0.4);
+  }
+
+  /* Spotlight hover effect - Very subtle */
   .spotlight {
     position: relative;
     overflow: hidden;
@@ -237,7 +236,7 @@
     right: 0;
     bottom: 0;
     background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(14, 165, 233, 0.12),
+        rgba(96, 165, 250, 0.06),
         transparent 40%);
     pointer-events: none;
     opacity: 0;
@@ -248,7 +247,7 @@
     opacity: 1;
   }
 
-  /* Animated border gradient */
+  /* Animated border gradient - Subtle */
   .border-gradient {
     position: relative;
     background: var(--card);
@@ -261,7 +260,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.3), rgba(94, 234, 212, 0.3));
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -271,9 +270,15 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
-  /* Noise texture overlay */
+  .border-gradient:hover::before {
+    opacity: 1;
+  }
+
+  /* Noise texture overlay - Very subtle */
   .noise {
     position: relative;
   }
@@ -283,17 +288,17 @@
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    opacity: 0.03;
+    opacity: 0.02;
     pointer-events: none;
     z-index: 1;
   }
 
-  /* Grid pattern */
+  /* Grid pattern - Very subtle */
   .grid-pattern {
     background-image:
-      linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+      linear-gradient(rgba(96, 165, 250, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(96, 165, 250, 0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
 }
 
@@ -309,7 +314,7 @@
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
@@ -317,11 +322,11 @@
 
   0%,
   100% {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 
   50% {
-    opacity: 1;
+    opacity: 0.6;
   }
 }
 
@@ -340,16 +345,16 @@
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+  animation: pulse-glow 4s ease-in-out infinite;
 }
 
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
+  animation: gradient-shift 10s ease infinite;
 }
 
 /* ============================================================================
@@ -357,7 +362,7 @@
    ============================================================================ */
 
 .section {
-  @apply py-20 md:py-32 px-4 md:px-8;
+  @apply py-20 md:py-28 px-4 md:px-8;
 }
 
 .container-custom {
