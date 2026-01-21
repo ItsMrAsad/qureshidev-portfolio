@@ -32,20 +32,20 @@ function AnimatedCrystal() {
         {/* Inner glowing core */}
         <mesh ref={innerRef} scale={0.5}>
           <octahedronGeometry args={[1, 0]} />
-          <meshBasicMaterial color="#3b82f6" transparent opacity={0.8} />
+          <meshBasicMaterial color="#0ea5e9" transparent opacity={0.8} />
         </mesh>
 
         {/* Middle wireframe layer */}
         <mesh scale={0.8}>
           <icosahedronGeometry args={[1, 1]} />
-          <meshBasicMaterial color="#06b6d4" wireframe transparent opacity={0.6} />
+          <meshBasicMaterial color="#10b981" wireframe transparent opacity={0.6} />
         </mesh>
 
         {/* Outer distorted shell */}
         <mesh ref={outerRef} scale={1.2}>
           <icosahedronGeometry args={[1, 4]} />
           <MeshDistortMaterial
-            color="#3b82f6"
+            color="#0ea5e9"
             transparent
             opacity={0.15}
             distort={0.4}
@@ -55,9 +55,9 @@ function AnimatedCrystal() {
         </mesh>
 
         {/* Orbiting rings */}
-        <Ring radius={1.8} speed={1} color="#3b82f6" />
-        <Ring radius={2.2} speed={-0.7} color="#06b6d4" rotationX={Math.PI / 3} />
-        <Ring radius={2.5} speed={0.5} color="#8b5cf6" rotationX={Math.PI / 2} />
+        <Ring radius={1.8} speed={1} color="#0ea5e9" />
+        <Ring radius={2.2} speed={-0.7} color="#10b981" rotationX={Math.PI / 3} />
+        <Ring radius={2.5} speed={0.5} color="#06b6d4" rotationX={Math.PI / 2} />
       </group>
     </Float>
   );
@@ -132,7 +132,7 @@ function EnhancedParticleField() {
       <points ref={points1Ref} geometry={geometry1}>
         <pointsMaterial
           size={0.04}
-          color="#3b82f6"
+          color="#0ea5e9"
           transparent
           opacity={0.8}
           sizeAttenuation
@@ -155,11 +155,11 @@ function EnhancedParticleField() {
 function FloatingOrbs() {
   return (
     <>
-      <FloatingOrb position={[-4, 2, -3]} color="#3b82f6" size={0.3} speed={1.2} />
-      <FloatingOrb position={[4, -2, -4]} color="#06b6d4" size={0.25} speed={0.8} />
-      <FloatingOrb position={[-3, -3, -2]} color="#8b5cf6" size={0.2} speed={1.5} />
-      <FloatingOrb position={[3, 3, -5]} color="#3b82f6" size={0.35} speed={1} />
-      <FloatingOrb position={[0, 4, -6]} color="#06b6d4" size={0.15} speed={1.8} />
+      <FloatingOrb position={[-4, 2, -3]} color="#0ea5e9" size={0.3} speed={1.2} />
+      <FloatingOrb position={[4, -2, -4]} color="#10b981" size={0.25} speed={0.8} />
+      <FloatingOrb position={[-3, -3, -2]} color="#06b6d4" size={0.2} speed={1.5} />
+      <FloatingOrb position={[3, 3, -5]} color="#0ea5e9" size={0.35} speed={1} />
+      <FloatingOrb position={[0, 4, -6]} color="#10b981" size={0.15} speed={1.8} />
     </>
   );
 }
@@ -195,7 +195,7 @@ function AnimatedGrid() {
   return (
     <gridHelper
       ref={gridRef}
-      args={[30, 30, "#3b82f6", "#1e3a5f"]}
+      args={[30, 30, "#0ea5e9", "#0c4a6e"]}
       position={[0, -5, 0]}
       rotation={[0, 0, 0]}
     />
@@ -277,9 +277,9 @@ export function HeroScene() {
         <Suspense fallback={null}>
           {/* Lighting */}
           <ambientLight intensity={0.3} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} color="#3b82f6" />
-          <pointLight position={[-10, -10, -10]} intensity={0.8} color="#06b6d4" />
-          <pointLight position={[0, 10, 0]} intensity={0.5} color="#8b5cf6" />
+          <pointLight position={[10, 10, 10]} intensity={1.5} color="#0ea5e9" />
+          <pointLight position={[-10, -10, -10]} intensity={0.8} color="#10b981" />
+          <pointLight position={[0, 10, 0]} intensity={0.5} color="#06b6d4" />
           <MouseLight />
 
           {/* Main crystal */}
@@ -294,7 +294,7 @@ export function HeroScene() {
             scale={15}
             size={2}
             speed={0.5}
-            color="#3b82f6"
+            color="#0ea5e9"
           />
 
           {/* Floating orbs */}

@@ -19,20 +19,20 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
+      staggerChildren: 0.05,
+      delayChildren: 0.05,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  hidden: { opacity: 0, y: 30, scale: 0.98 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.6,
+      duration: 0.4,
       ease: "easeOut" as const,
     },
   },
@@ -84,9 +84,8 @@ function TiltProjectCard({
     <motion.div
       ref={ref}
       variants={itemVariants}
-      className={`group relative cursor-pointer ${
-        project.featured ? "md:col-span-2 md:row-span-2" : ""
-      }`}
+      className={`group relative cursor-pointer ${project.featured ? "md:col-span-2 md:row-span-2" : ""
+        }`}
       style={{
         rotateX,
         rotateY,
@@ -128,9 +127,8 @@ function TiltProjectCard({
 
         {/* Project Image / Gradient Placeholder */}
         <div
-          className={`relative w-full overflow-hidden ${
-            project.featured ? "h-48 md:h-72" : "h-44"
-          }`}
+          className={`relative w-full overflow-hidden ${project.featured ? "h-48 md:h-72" : "h-44"
+            }`}
         >
           {/* Animated gradient background */}
           <motion.div

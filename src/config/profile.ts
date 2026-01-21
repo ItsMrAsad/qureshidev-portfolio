@@ -60,6 +60,16 @@ export interface Experience {
   techUsed: string[];
 }
 
+export interface Testimonial {
+  id: string;
+  name: string;
+  title: string;
+  company: string;
+  content: string;
+  avatarUrl?: string;
+  rating: number;
+}
+
 // ----------------------------------------------------------------------------
 // PROFILE DATA
 // ----------------------------------------------------------------------------
@@ -428,6 +438,67 @@ export const experience: Experience[] = [
 ];
 
 // ----------------------------------------------------------------------------
+// TESTIMONIALS
+// ----------------------------------------------------------------------------
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "testimonial-1",
+    name: "Sarah Chen",
+    title: "VP of Engineering",
+    company: "TechScale AI",
+    content:
+      "Asad's work on our multi-agent system was nothing short of extraordinary. He delivered a solution that reduced our manual processing time by 85% and handles 10K+ concurrent tasks. His deep understanding of LLMs and autonomous systems is unmatched.",
+    rating: 5,
+  },
+  {
+    id: "testimonial-2",
+    name: "Michael Rodriguez",
+    title: "CTO",
+    company: "DataFlow Systems",
+    content:
+      "We hired Asad to architect our enterprise RAG pipeline. The result exceeded all expectations — sub-200ms query times at scale, 60% reduction in token costs, and 99.7% accuracy. He's the real deal.",
+    rating: 5,
+  },
+  {
+    id: "testimonial-3",
+    name: "Emily Watson",
+    title: "Product Manager",
+    company: "InnovateTech",
+    content:
+      "Working with Asad was a game-changer for our AI code review tool. His technical expertise combined with his ability to understand business needs made the collaboration incredibly smooth. Highly recommended!",
+    rating: 5,
+  },
+  {
+    id: "testimonial-4",
+    name: "David Kim",
+    title: "Founder & CEO",
+    company: "AutomateAI",
+    content:
+      "Asad built our voice AI agent from scratch. The system now handles thousands of customer calls with human-like conversation quality. His attention to detail and commitment to excellence is remarkable.",
+    rating: 5,
+  },
+  {
+    id: "testimonial-5",
+    name: "Lisa Thompson",
+    title: "Director of AI",
+    company: "FinanceFlow",
+    content:
+      "The prompt engineering studio Asad built for us has transformed how our team works with LLMs. Version control for prompts, A/B testing, cost analytics — it's everything we needed and more.",
+    rating: 5,
+  },
+  {
+    id: "testimonial-6",
+    name: "James Park",
+    title: "Head of Engineering",
+    company: "CloudNative Labs",
+    content:
+      "Asad's full-stack expertise combined with his AI knowledge is rare. He delivered our ML pipeline orchestrator on time, on budget, and with documentation that made our team's lives so much easier.",
+    rating: 5,
+  },
+];
+
+// ----------------------------------------------------------------------------
 // STATS (for potential future use)
 // ----------------------------------------------------------------------------
 
@@ -447,6 +518,7 @@ export const navigation = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
+  { name: "Testimonials", href: "#testimonials" },
   { name: "Certificates", href: "#certificates" },
   { name: "Contact", href: "#contact" },
 ];

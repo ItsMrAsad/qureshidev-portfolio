@@ -18,33 +18,33 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2,
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
   visible: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
     transition: {
-      duration: 0.8,
+      duration: 0.5,
       ease: "easeOut" as const,
     },
   },
 };
 
 const letterVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      delay: i * 0.03,
+      duration: 0.4,
+      delay: i * 0.02,
       ease: "easeOut" as const,
     },
   }),
