@@ -107,8 +107,13 @@ export function AboutSection() {
               </div>
 
               {/* Highlights */}
-              <div className="grid gap-4">
-                {highlights.map((item, index) => (
+              <div>
+                <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  Core Principles
+                </h3>
+                <div className="grid gap-4">
+                  {highlights.map((item, index) => (
                   <motion.div
                     key={item.title}
                     variants={itemVariants}
@@ -128,6 +133,7 @@ export function AboutSection() {
                     </div>
                   </motion.div>
                 ))}
+                </div>
               </div>
             </motion.div>
 

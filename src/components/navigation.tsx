@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,27 +11,43 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    // Optimized scroll handler with throttling
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // Throttle state updates to avoid excessive re-renders
+      if (scrollTimeoutRef.current !== null) {
+        return;
+      }
 
-      // Update active section based on scroll position
-      const sections = navigation.map((item) => item.href.replace("#", ""));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(section);
-            break;
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolled(window.scrollY > 50);
+
+        // Update active section based on scroll position (cached check)
+        const sections = navigation.map((item) => item.href.replace("#", ""));
+        for (const section of sections.reverse()) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 150) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
-      }
+
+        scrollTimeoutRef.current = null;
+      }, 100); // Throttle to 100ms
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeoutRef.current !== null) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, []);
 
   const handleNavClick = (href: string) => {

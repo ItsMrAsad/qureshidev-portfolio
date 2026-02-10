@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SmoothScrollProvider } from "@/components/providers/smooth-scroll";
+import { AdaptiveScrollProvider } from "@/components/providers/adaptive-scroll";
 import { ClientWrapper } from "@/components/client-wrapper";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -185,9 +185,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/icon-192.svg" sizes="192x192" type="image/svg+xml" />
+        <link rel="icon" href="/icon-512.svg" sizes="512x512" type="image/svg+xml" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <script
           type="application/ld+json"
@@ -197,9 +197,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SmoothScrollProvider>
+        <AdaptiveScrollProvider>
           <ClientWrapper>{children}</ClientWrapper>
-        </SmoothScrollProvider>
+        </AdaptiveScrollProvider>
         <Analytics />
         <SpeedInsights />
       </body>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Home, ArrowLeft, Search } from "lucide-react";
+import { Home, Search } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 

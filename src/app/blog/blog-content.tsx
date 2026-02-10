@@ -28,7 +28,7 @@ const itemVariants = {
   },
 };
 
-function BlogCard({ post, index }: { post: typeof blogPosts[0]; index: number }) {
+function BlogCard({ post }: { post: typeof blogPosts[0]; index: number }) {
   return (
     <motion.article
       variants={itemVariants}

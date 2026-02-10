@@ -255,7 +255,7 @@ export function StaggerItem({ children, className = "" }: StaggerItemProps) {
   );
 }
 
-// Magnetic hover effect wrapper
+// Magnetic hover effect wrapper - OPTIMIZED to prevent forced reflows
 interface MagneticProps {
   children: ReactNode;
   className?: string;
@@ -264,26 +264,62 @@ interface MagneticProps {
 
 export function Magnetic({ children, className = "", strength = 0.3 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const boundsRef = useRef<DOMRect | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    ref.current.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+
+    // Only recalculate bounds if not cached (prevents forced reflow on every move)
+    if (!boundsRef.current) {
+      boundsRef.current = ref.current.getBoundingClientRect();
+    }
+
+    const bounds = boundsRef.current;
+    const x = e.clientX - bounds.left - bounds.width / 2;
+    const y = e.clientY - bounds.top - bounds.height / 2;
+
+    // Use requestAnimationFrame to batch updates
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+    }
+
+    rafRef.current = requestAnimationFrame(() => {
+      if (ref.current) {
+        ref.current.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+        rafRef.current = null;
+      }
+    });
   };
 
   const handleMouseLeave = () => {
     if (!ref.current) return;
+
+    // Clear pending animation frame
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+
     ref.current.style.transform = "translate(0, 0)";
+    boundsRef.current = null; // Reset bounds cache
+  };
+
+  const handleMouseEnter = () => {
+    // Pre-cache bounds on enter (only one forced reflow)
+    if (ref.current) {
+      boundsRef.current = ref.current.getBoundingClientRect();
+    }
   };
 
   return (
     <motion.div
       ref={ref}
-      className={`transition-transform duration-200 ${className}`}
+      className={className}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      style={{ willChange: "transform" }} // Hint to browser for optimization
     >
       {children}
     </motion.div>

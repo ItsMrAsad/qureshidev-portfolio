@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowLeft, Clock, Calendar, Tag, Share2, Twitter, Linkedin, Link as LinkIcon } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Twitter, Linkedin, Link as LinkIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import type { BlogPost } from "@/config/blog";

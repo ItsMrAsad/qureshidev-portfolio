@@ -22,12 +22,12 @@ export function TextScramble({
     const ref = useRef<HTMLSpanElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
     const [displayText, setDisplayText] = useState(text);
-    const [isAnimating, setIsAnimating] = useState(false);
+    const isAnimatingRef = useRef(false);
 
     useEffect(() => {
-        if (!isInView || isAnimating) return;
+        if (!isInView || isAnimatingRef.current) return;
 
-        setIsAnimating(true);
+        isAnimatingRef.current = true;
         let iteration = 0;
         const maxIterations = text.length;
 
@@ -49,7 +49,7 @@ export function TextScramble({
                 if (iteration >= maxIterations) {
                     clearInterval(interval);
                     setDisplayText(text);
-                    setIsAnimating(false);
+                    isAnimatingRef.current = false;
                 }
             }, speed);
 
@@ -57,7 +57,7 @@ export function TextScramble({
         }, delay);
 
         return () => clearTimeout(timeout);
-    }, [isInView, text, delay, speed, isAnimating]);
+    }, [isInView, text, delay, speed]);
 
     return (
         <span ref={ref} className={className}>

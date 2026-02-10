@@ -182,12 +182,15 @@
     }
   }
 
-  /* Glassmorphism - Darker, more subtle */
+  /* Glassmorphism - Darker, more subtle, optimized for performance */
   .glass {
     background: rgba(9, 9, 11, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(39, 39, 42, 0.6);
+    /* Performance optimization hints */
+    contain: layout style paint;
+    will-change: transform;
   }
 
   .glass-strong {
@@ -195,6 +198,9 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(39, 39, 42, 0.8);
+    /* Performance optimization hints */
+    contain: layout style paint;
+    will-change: transform;
   }
 
   /* Glow effects - Much more subtle */

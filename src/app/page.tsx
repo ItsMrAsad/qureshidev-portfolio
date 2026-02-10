@@ -1,12 +1,14 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/sections/hero";
-import { AboutSection } from "@/components/sections/about";
-import { SkillsSection } from "@/components/sections/skills";
-import { ProjectsSection } from "@/components/sections/projects";
-import { TestimonialsSection } from "@/components/sections/testimonials";
-import { CertificatesSection } from "@/components/sections/certificates";
-import { ContactSection } from "@/components/sections/contact";
+import {
+  LazyAboutSection,
+  LazySkillsSection,
+  LazyProjectsSection,
+  LazyTestimonialsSection,
+  LazyCertificatesSection,
+  LazyContactSection,
+} from "@/components/lazy-sections";
 
 export default function Home() {
   return (
@@ -14,12 +16,12 @@ export default function Home() {
       <Navigation />
       <main className="relative">
         <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <TestimonialsSection />
-        <CertificatesSection />
-        <ContactSection />
+        <LazyAboutSection />
+        <LazySkillsSection />
+        <LazyProjectsSection />
+        <LazyTestimonialsSection />
+        <LazyCertificatesSection />
+        <LazyContactSection />
       </main>
       <Footer />
     </>
